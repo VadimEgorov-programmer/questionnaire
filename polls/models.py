@@ -12,7 +12,7 @@ class Poll(models.Model):
 
 
 class Question(models.Model):
-    Poll = models.ForeignKey(Poll, related_name='questions', on_delete=models.CASCADE)
+    poll = models.ForeignKey(Poll, related_name='questions', on_delete=models.CASCADE)
     text_question = models.CharField(max_length=200)
     type_question = models.CharField(max_length=200, verbose_name='type question')
 
@@ -30,7 +30,7 @@ class Choice(models.Model):
 
 class Answer(models.Model):
     user_id = models.IntegerField()
-    Poll = models.ForeignKey(Poll, related_name='Poll', on_delete=models.CASCADE)
+    poll = models.ForeignKey(Poll, related_name='Poll', on_delete=models.CASCADE)
     question = models.ForeignKey(Question, related_name='question', on_delete=models.CASCADE)
     choice = models.ForeignKey(Choice, related_name='choice', on_delete=models.CASCADE, null=True)
     choice_text = models.CharField(max_length=200, null=True)
