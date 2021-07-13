@@ -5,10 +5,10 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Api_polls",
+        title='Api_polls',
         default_version='v1',
-        description="API для системы опросов пользователей",
-        license=openapi.License(name="License"),
+        description='API для системы опросов пользователей',
+        license=openapi.License(name='License'),
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),

@@ -19,10 +19,10 @@ from .serializers import PollSerializer, QuestionSerializer, \
 
 
 @csrf_exempt
-@api_view(["GET"])
+@api_view(['GET'])
 def login(request):
-    username = request.data.get("username")
-    password = request.data.get("password")
+    username = request.data.get('username')
+    password = request.data.get('password')
     if username is None or password is None:
         return Response({'error': 'Ошибка, укажите имя пользователя и пароль'},
                         status=HTTP_400_BAD_REQUEST)
@@ -59,7 +59,7 @@ def poll_update(request, poll_id):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         poll.delete()
-        return Response("Вы успешно удалили опрос",
+        return Response('Вы успешно удалили опрос',
                         status=status.HTTP_204_NO_CONTENT)
 
 
@@ -95,7 +95,7 @@ def question_update(request, question_id):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         question.delete()
-        return Response("Вопрос успешно отправился в корзину",
+        return Response('Вопрос успешно отправился в корзину',
                         status=status.HTTP_204_NO_CONTENT)
 
 
@@ -122,7 +122,7 @@ def choice_update(request, choice_id):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         choice.delete()
-        return Response("Вы успешно удалиди выбор",
+        return Response('Вы успешно удалиди выбор',
                         status=status.HTTP_204_NO_CONTENT)
 
 
@@ -167,5 +167,5 @@ def answer_update(request, answer_id):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
         answer.delete()
-        return Response("Вы успешно удалиди ответ",
+        return Response('Вы успешно удалиди ответ',
                         status=status.HTTP_204_NO_CONTENT)
